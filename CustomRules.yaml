@@ -1,0 +1,533 @@
+#https://github.com/ACL4SSR/ACL4SSR/tree/master
+
+mixed-port: 7890
+ipv6: true
+allow-lan: true
+log-level: warning
+unified-delay: false
+tcp-concurrent: true
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+
+#DNS
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback:
+    - tls://1.1.1.1:853
+    - tls://8.8.8.8:853
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - '*.lan'
+    - 'localhost.ptlogin2.qq.com'
+    - 'dns.msftncsi.com'
+    - 'www.msftncsi.com'
+    - 'www.msftconnecttest.com'
+
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
+geodata-loader: standard
+geox-url:
+  geoip: https://fastgh.lainbo.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
+  geosite: https://fastgh.lainbo.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  mmdb: https://fastgh.lainbo.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
+
+
+proxy-groups:
+    #========================基础模式========================#
+  - name: 📬 代理模式
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+
+
+  - name: 🚀 手动切换
+    include-all: true
+    type: select
+
+
+
+  - name: 🔮 负载均衡
+    type: load-balance
+    strategy: consistent-hashing
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+    #========================大厂线路========================#
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+  - name: 📢 谷歌服务
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+
+
+
+    #========================应用服务========================#
+  - name: 💬 AIGC
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+      
+
+  - name: 📑 Notion
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+      
+
+  - name: 📶 Github
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+      
+
+  - name: 📹 油管视频
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+      
+
+  - name: Ⓜ️ OneDrive
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+  
+  - name: 🎮 游戏平台
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+
+  - name: 🎮 虚幻引擎
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+
+  - name: 🎯 数据下载
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+
+
+
+
+
+
+#========================地区线路========================#
+  - name: 🇭🇰 香港节点
+    include-all: true
+    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇯🇵 日本节点
+    include-all: true
+    filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇸🇬 新加坡节点
+    include-all: true
+    filter: (?i)新加坡|坡|狮城|SG|Singapore
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: 🇺🇲 美国节点
+    include-all: true
+    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
+    type: url-test
+    interval: 300
+    tolerance: 50
+
+  - name: 🌍 其他节点
+    type: url-test
+    include-all: true
+    filter: "(?i)^(?!.*(港|HK|hk|Hong Kong|HongKong|hongkong|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan|新加坡|坡|狮城|SG|Singapore|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)).*"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 100
+
+
+
+
+#========================兜底规则========================#
+  - name: 🚀 全球直连
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🚧 禁止访问
+    type: select
+    proxies:
+      - REJECT
+
+
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - DIRECT
+      - REJECT
+      
+
+  - name: 🔯 故障转移
+    type: fallback
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
+
+
+
+
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: list}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: list}
+  classical: &classical {type: http, interval: 86400, behavior: classical, format: text}
+
+rule-providers:
+    #========================基础模式========================#
+  LocalAreaNetwork:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+    path: ./ruleset/LocalAreaNetwork.list
+  BanAD:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
+    path: ./ruleset/BanAD.list
+
+
+
+
+
+
+
+
+    #========================大厂线路========================#
+  Google:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.list
+    path: ./ruleset/Google.list
+  Microsoft:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
+    path: ./ruleset/Microsoft.list
+  Apple:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Apple.list
+    path: ./ruleset/Apple.list
+
+
+
+    #========================应用服务========================#
+
+
+  Github:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.list
+    path: ./ruleset/Github.list
+  Gemini:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Gemini/Gemini.list
+    path: ./ruleset/Gemini.list
+  OpenAI:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list
+    path: ./ruleset/OpenAI.list
+  Notion:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Notion/Notion.list
+    path: ./ruleset/Notion.list
+  OneDrive:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/OneDrive.list
+    path: ./ruleset/OneDrive.list
+  Bing:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Bing/Bing.list
+    path: ./ruleset/Bing.list
+
+
+
+
+  Origin:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Origin.list
+    path: ./ruleset/Origin.list
+  Sony:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Sony.list
+    path: ./ruleset/Sony.list
+  Steam:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Steam.list
+    path: ./ruleset/Steam.list
+  Nintendo:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Nintendo.list
+    path: ./ruleset/Nintendo.list
+
+
+
+  Epic:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Epic.list
+    path: ./ruleset/Epic.list
+
+  YouTube:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/YouTube.list
+    path: ./ruleset/YouTube.list
+
+
+
+
+
+
+
+    #========================兜底规则========================#
+
+
+
+
+
+  GoogleCN:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
+    path: ./ruleset/GoogleCN.list
+  SteamCN:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/SteamCN.list
+    path: ./ruleset/SteamCN.list
+
+
+  ProxyGFWlist:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyGFWlist.list
+    path: ./ruleset/ProxyGFWlist.list
+  ChinaDomain:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+    path: ./ruleset/ChinaDomain.list
+  ChinaCompanyIp:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
+    path: ./ruleset/ChinaCompanyIp.list
+  Download:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list
+    path: ./ruleset/Download.list
+  collection: 
+    <<: *classical
+    path: ./rules/collection.yaml
+    url: "https://gist.githubusercontent.com/cnfree8964/0864fd1d2e88936a095fb40d74ce4993/raw/collection.yaml"
+
+
+rules:
+
+    #========================基础模式========================#
+  - "RULE-SET,LocalAreaNetwork,🚀 全球直连"
+  - "RULE-SET,BanAD,🛑 广告拦截"
+  - "RULE-SET,SteamCN,🚀 全球直连"
+
+
+
+
+
+
+    #========================大厂线路========================#
+  - "RULE-SET,Google,📢 谷歌服务"
+  - "RULE-SET,Microsoft,Ⓜ️ 微软服务"
+  - "RULE-SET,Bing,Ⓜ️ 微软服务"
+  - "RULE-SET,Apple,🍎 苹果服务"
+  - "RULE-SET,GoogleCN,🚀 全球直连"
+
+
+
+
+    #========================应用服务========================#
+  - "RULE-SET,Gemini,💬 AIGC"
+  - "RULE-SET,OpenAI,💬 AIGC"
+  - "RULE-SET,Notion,📑 Notion"
+  - "RULE-SET,Github,📶 Github"
+
+  - "RULE-SET,Epic,🎮 虚幻引擎"
+  - "RULE-SET,Origin,🎮 游戏平台"
+  - "RULE-SET,Sony,🎮 游戏平台"
+  - "RULE-SET,Steam,🎮 游戏平台"
+  - "RULE-SET,Nintendo,🎮 游戏平台"
+
+
+  - "RULE-SET,OneDrive,Ⓜ️ OneDrive"
+  - "RULE-SET,YouTube,📹 油管视频"
+
+  - "RULE-SET,Download,🎯 数据下载"
+
+
+
+    #========================兜底规则========================#
+
+
+  - "RULE-SET,ChinaDomain,🚀 全球直连"
+  - "RULE-SET,ChinaCompanyIp,🚀 全球直连"
+  - "RULE-SET,ProxyGFWlist,📬 代理模式"
+  - "RULE-SET,collection,🚀 全球直连,no-resolve"
+  - "GEOIP,CN,🚀 全球直连,no-resolve"
+  - "MATCH,🐟 漏网之鱼"
+
+
+
+
+
+
+
