@@ -1,4 +1,4 @@
-#https://github.com/ACL4SSR/ACL4SSR/tree/master
+#https://github.com/maxxie6418/Custom-rules
 
 mixed-port: 7890
 ipv6: true
@@ -357,6 +357,11 @@ rule-providers:
     <<: *classical
     url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnREJECTRules.list
     path: ./ruleset/OwnREJECTRules.list
+  #Adobe验证屏蔽 https://github.com/ignaciocastro/a-dove-is-dumb
+  BanAdobeCheck:
+    <<: *classical
+    url: https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/refs/heads/main/clash.yaml
+    path: ./ruleset/BanAdobeCheck.list
 
 
 
@@ -482,6 +487,7 @@ rule-providers:
     <<: *classical
     path: ./rules/collection.yaml
     url: "https://gist.githubusercontent.com/cnfree8964/0864fd1d2e88936a095fb40d74ce4993/raw/collection.yaml"
+    path: ./ruleset/collection.list
 
 
 rules:
@@ -489,6 +495,7 @@ rules:
     #========================基础模式========================#
   - "RULE-SET,LocalAreaNetwork,🚀 全球直连"
   - "RULE-SET,BanAD,🛑 广告拦截"
+  - "RULE-SET,BanAdobeCheck,🚧 禁止访问"
 
   - "RULE-SET,OwnDIRECTRules,🚀 全球直连"
   - "RULE-SET,OwnPROXYRules,📬 代理模式"
