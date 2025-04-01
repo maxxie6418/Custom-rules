@@ -1,4 +1,0 @@
-# 自定义直连规则
-payload:
-  - DOMAIN-SUFFIX,linux.do
-
