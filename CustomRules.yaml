@@ -344,18 +344,18 @@ rule-providers:
   #自定义直连
   OwnDIRECTRules:
     <<: *classical
-    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnDIRECTRules.list?token=GHSAT0AAAAAADAKEC76PMPLW4OC54OPUYBSZ7LVOOA
+    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnDIRECTRules.list
     path: ./ruleset/OwnDIRECTRules.list
 
   #自定义代理
   OwnPROXYRules:
     <<: *classical
-    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnPROXYRules.list?token=GHSAT0AAAAAADAKEC76IQ4GOFRTKSURR3SYZ7LVPKA
+    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnPROXYRules.list
     path: ./ruleset/OwnPROXYRules.list
   #自定义禁止访问
   OwnREJECTRules:
     <<: *classical
-    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnREJECTRules.list?token=GHSAT0AAAAAADAKEC76QNTIXYKSLPUKHRZGZ7LVWBA
+    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnREJECTRules.list
     path: ./ruleset/OwnREJECTRules.list
 
 
