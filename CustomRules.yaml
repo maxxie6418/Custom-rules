@@ -1,5 +1,5 @@
 #https://github.com/maxxie6418/Custom-rules
-#https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/CustomRules.yaml?token=GHSAT0AAAAAADAKEC77MJQGTJNRCMUJTCOCZ7LYZRA
+#https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/CustomRules.yaml
 
 mixed-port: 7890
 ipv6: true
@@ -321,18 +321,18 @@ rule-providers:
   #自定义直连
   OwnDIRECTRules:
     <<: *classical
-    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnDIRECTRules.list?token=GHSAT0AAAAAADAKEC77DKNJO4HXILR4Q4SCZ7LY2JA
+    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnDIRECTRules.list
     path: ./ruleset/OwnDIRECTRules.list
 
   #自定义代理
   OwnPROXYRules:
     <<: *classical
-    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnPROXYRules.list?token=GHSAT0AAAAAADAKEC77X22PEORGMWF2TITGZ7LY2WQ
+    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnPROXYRules.list
     path: ./ruleset/OwnPROXYRules.list
   #自定义禁止访问
   OwnREJECTRules:
     <<: *classical
-    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnREJECTRules.list?token=GHSAT0AAAAAADAKEC77JH2IQZDUYAQDOPZYZ7LY24Q
+    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnREJECTRules.list
     path: ./ruleset/OwnREJECTRules.list
   #Adobe验证屏蔽 https://github.com/ignaciocastro/a-dove-is-dumb
   BanAdobeCheck:
