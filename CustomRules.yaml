@@ -10,7 +10,6 @@ profile:
   store-selected: true
   store-fake-ip: true
 
-
 #DNS
 dns:
   enable: true
@@ -47,7 +46,6 @@ geox-url:
   geosite: https://fastgh.lainbo.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
   mmdb: https://fastgh.lainbo.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
 
-
 proxy-groups:
     #========================基础模式========================#
   - name: 📬 代理模式
@@ -63,12 +61,9 @@ proxy-groups:
       - 🌍 其他节点
       - 🔮 负载均衡
 
-
   - name: 🚀 手动切换
     include-all: true
     type: select
-
-
 
   - name: 🔮 负载均衡
     type: load-balance
@@ -122,8 +117,6 @@ proxy-groups:
       - 🌍 其他节点
       - 🔮 负载均衡
 
-
-
     #========================应用服务========================#
   - name: 💬 AIGC
     type: select
@@ -139,7 +132,6 @@ proxy-groups:
       - 🌍 其他节点
       - 🔮 负载均衡
       
-
   - name: 📑 Notion
     type: select
     proxies:
@@ -154,7 +146,6 @@ proxy-groups:
       - 🌍 其他节点
       - 🔮 负载均衡
       
-
   - name: 📶 Github
     type: select
     proxies:
@@ -169,7 +160,6 @@ proxy-groups:
       - 🌍 其他节点
       - 🔮 负载均衡
       
-
   - name: 📹 油管视频
     type: select
     proxies:
@@ -184,7 +174,6 @@ proxy-groups:
       - 🌍 其他节点
       - 🔮 负载均衡
       
-
   - name: Ⓜ️ OneDrive
     type: select
     proxies:
@@ -241,11 +230,6 @@ proxy-groups:
       - 🌍 其他节点
       - 🔮 负载均衡
 
-
-
-
-
-
 #========================地区线路========================#
   - name: 🇭🇰 香港节点
     include-all: true
@@ -271,7 +255,6 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
-
   - name: 🌍 其他节点
     type: url-test
     include-all: true
@@ -279,8 +262,6 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 100
-
-
 
 
 #========================兜底规则========================#
@@ -294,14 +275,12 @@ proxy-groups:
     proxies:
       - REJECT
 
-
   - name: 🛑 广告拦截
     type: select
     proxies:
       - DIRECT
       - REJECT
       
-
   - name: 🔯 故障转移
     type: fallback
     include-all: true
@@ -321,9 +300,6 @@ proxy-groups:
       - 🇺🇲 美国节点
       - 🌍 其他节点
       - 🔮 负载均衡
-
-
-
 
 rule-anchor:
   ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: list}
@@ -363,12 +339,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/refs/heads/main/clash.yaml
     path: ./ruleset/BanAdobeCheck.list
 
-
-
-
-
-
-
     #========================大厂线路========================#
   Google:
     <<: *classical
@@ -383,10 +353,7 @@ rule-providers:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Apple.list
     path: ./ruleset/Apple.list
 
-
-
     #========================应用服务========================#
-
 #基础应用
   Github:
     <<: *classical
@@ -417,7 +384,6 @@ rule-providers:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/YouTube.list
     path: ./ruleset/YouTube.list
 
-
 #游戏
   Origin:
     <<: *classical
@@ -435,28 +401,6 @@ rule-providers:
     <<: *classical
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Nintendo.list
     path: ./ruleset/Nintendo.list
-
-
-
-  Epic:
-    <<: *classical
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Epic.list
-    path: ./ruleset/Epic.list
-
-
-
-
-
-
-
-
-
-    #========================兜底规则========================#
-
-
-
-
-
   GoogleCN:
     <<: *classical
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
@@ -466,7 +410,13 @@ rule-providers:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/SteamCN.list
     path: ./ruleset/SteamCN.list
 
+  Epic:
+    <<: *classical
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Epic.list
+    path: ./ruleset/Epic.list
 
+
+    #========================兜底规则========================#
   ProxyGFWlist:
     <<: *classical
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyGFWlist.list
@@ -483,28 +433,28 @@ rule-providers:
     <<: *classical
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list
     path: ./ruleset/Download.list
-  collection: 
+  Collection: 
     <<: *classical
-    path: ./rules/collection.yaml
     url: "https://gist.githubusercontent.com/cnfree8964/0864fd1d2e88936a095fb40d74ce4993/raw/collection.yaml"
-    path: ./ruleset/collection.list
+    path: ./ruleset/Collection.list
 
 
 rules:
-
-    #========================基础模式========================#
-  - "RULE-SET,LocalAreaNetwork,🚀 全球直连"
+    #========================基础设定========================#
   - "RULE-SET,BanAD,🛑 广告拦截"
-  - "RULE-SET,BanAdobeCheck,🚧 禁止访问"
-
-  - "RULE-SET,OwnDIRECTRules,🚀 全球直连"
   - "RULE-SET,OwnPROXYRules,📬 代理模式"
-  - "RULE-SET,OwnREJECTRules,🚧 禁止访问"
+  - "RULE-SET,ProxyGFWlist,📬 代理模式"
 
+#默认拦截
+  - "RULE-SET,BanAdobeCheck,🚧 禁止访问"
+  - "RULE-SET,OwnREJECTRules,🚧 禁止访问"  
 
-
-
-
+#默认连接
+  - "RULE-SET,LocalAreaNetwork,🚀 全球直连"
+  - "RULE-SET,OwnDIRECTRules,🚀 全球直连"
+  - "RULE-SET,ChinaDomain,🚀 全球直连"
+  - "RULE-SET,ChinaCompanyIp,🚀 全球直连"
+  - "RULE-SET,Collection,🚀 全球直连,no-resolve"
 
     #========================大厂线路========================#
   - "RULE-SET,Google,📢 谷歌服务"
@@ -513,14 +463,13 @@ rules:
   - "RULE-SET,Apple,🍎 苹果服务"
   - "RULE-SET,GoogleCN,🚀 全球直连"
 
-
-
-
     #========================应用服务========================#
   - "RULE-SET,Gemini,💬 AIGC"
   - "RULE-SET,OpenAI,💬 AIGC"
   - "RULE-SET,Notion,📑 Notion"
   - "RULE-SET,Github,📶 Github"
+  - "RULE-SET,OneDrive,Ⓜ️ OneDrive"
+  - "RULE-SET,YouTube,📹 油管视频"
 
   - "RULE-SET,Epic,🎮 虚幻引擎"
   - "RULE-SET,Origin,🎮 游戏平台"
@@ -528,22 +477,10 @@ rules:
   - "RULE-SET,Steam,🎮 游戏平台"
   - "RULE-SET,SteamCN,🚀 全球直连"
   - "RULE-SET,Nintendo,🎮 游戏平台"
-
-
-  - "RULE-SET,OneDrive,Ⓜ️ OneDrive"
-  - "RULE-SET,YouTube,📹 油管视频"
-
   - "RULE-SET,Download,🎯 数据下载"
 
 
-
     #========================兜底规则========================#
-
-
-  - "RULE-SET,ChinaDomain,🚀 全球直连"
-  - "RULE-SET,ChinaCompanyIp,🚀 全球直连"
-  - "RULE-SET,ProxyGFWlist,📬 代理模式"
-  - "RULE-SET,collection,🚀 全球直连,no-resolve"
   - "GEOIP,CN,🚀 全球直连,no-resolve"
   - "MATCH,🐟 漏网之鱼"
 
