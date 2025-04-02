@@ -70,6 +70,7 @@ proxy-groups:
     type: load-balance
     strategy: consistent-hashing
     proxies:
+      - 📬 代理模式
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
@@ -330,6 +331,7 @@ rule-providers:
     <<: *classical
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
     path: ./ruleset/BanAD.list
+  
 
   #自定义直连
   OwnDIRECTRules:
@@ -357,6 +359,11 @@ rule-providers:
     <<: *classical
     url: https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/refs/heads/main/clash.yaml
     path: ./ruleset/BanAdobeCheck.list
+  #AbBlock Listhttps://github.com/xndeye/adblock_list
+  AbBlock:
+    <<: *classical
+    url: https://raw.githubusercontent.com/xndeye/adblock_list/refs/heads/release/clash.yaml
+    path: ./ruleset/AbBlock.list
 
     #========================大厂线路========================#
   Google:
@@ -378,14 +385,6 @@ rule-providers:
     <<: *classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.list
     path: ./ruleset/Github.list
-  Gemini:
-    <<: *classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Gemini/Gemini.list
-    path: ./ruleset/Gemini.list
-  OpenAI:
-    <<: *classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list
-    path: ./ruleset/OpenAI.list
   Notion:
     <<: *classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Notion/Notion.list
@@ -402,6 +401,19 @@ rule-providers:
     <<: *classical
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/YouTube.list
     path: ./ruleset/YouTube.list
+#AIGC应用
+  Gemini:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Gemini/Gemini.list
+    path: ./ruleset/Gemini.list
+  OpenAI:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list
+    path: ./ruleset/OpenAI.list
+  Copilot:
+    <<: *classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Copilot/Copilot.list
+    path: ./ruleset/Copilot.list
 
 #游戏
   Origin:
@@ -461,6 +473,7 @@ rule-providers:
 rules:
     #========================基础设定========================#
   - "RULE-SET,BanAD,🛑 广告拦截"
+  - "RULE-SET,AbBlock,🛑 广告拦截"
   - "RULE-SET,OwnPROXYRules,📬 代理模式"
   - "RULE-SET,ProxyGFWlist,📬 代理模式"
 
@@ -488,6 +501,7 @@ rules:
     #========================应用服务========================#
   - "RULE-SET,Gemini,💬 AIGC"
   - "RULE-SET,OpenAI,💬 AIGC"
+  - "RULE-SET,Copilot,💬 AIGC"
   - "RULE-SET,Notion,📑 Notion"
   - "RULE-SET,Github,📶 Github"
   - "RULE-SET,OneDrive,Ⓜ️ OneDrive"
