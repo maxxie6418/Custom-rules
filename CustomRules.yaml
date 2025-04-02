@@ -70,7 +70,6 @@ proxy-groups:
     type: load-balance
     strategy: consistent-hashing
     proxies:
-      - 📬 代理模式
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
