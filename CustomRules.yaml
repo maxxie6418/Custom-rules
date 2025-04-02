@@ -76,6 +76,19 @@ proxy-groups:
       - 🇺🇲 美国节点
     url: http://www.gstatic.com/generate_204
     interval: 300
+  - name: 🔃 自定义选择
+    type: select
+    proxies:
+      - 📬 代理模式
+      - 🚀 手动切换
+      - 🚀 全球直连
+      - 🚧 禁止访问
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🌍 其他节点
+      - 🔮 负载均衡
 
     #========================大厂线路========================#
   - name: Ⓜ️ 微软服务
@@ -334,6 +347,11 @@ rule-providers:
     <<: *classical
     url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnREJECTRules.list
     path: ./ruleset/OwnREJECTRules.list
+  #自定义手动切换
+  OwnSWITCHRules:
+    <<: *classical
+    url: https://raw.githubusercontent.com/maxxie6418/Custom-rules/refs/heads/main/ruleset/OwnSWITCHRules.list
+    path: ./ruleset/OwnSWITCHRules.list
   #Adobe验证屏蔽 https://github.com/ignaciocastro/a-dove-is-dumb
   BanAdobeCheck:
     <<: *classical
@@ -456,6 +474,9 @@ rules:
   - "RULE-SET,ChinaDomain,🚀 全球直连"
   - "RULE-SET,ChinaCompanyIp,🚀 全球直连"
   - "RULE-SET,Collection,🚀 全球直连,no-resolve"
+
+#自定义选择
+  - "RULE-SET,OwnSWITCHRules,🔃 自定义选择"
 
     #========================大厂线路========================#
   - "RULE-SET,Google,📢 谷歌服务"
