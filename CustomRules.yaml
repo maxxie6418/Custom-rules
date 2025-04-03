@@ -474,7 +474,8 @@ rules:
   - "RULE-SET,BanAD,🛑 广告拦截"
   - "RULE-SET,AbBlock,🛑 广告拦截"
   - "RULE-SET,OwnPROXYRules,📬 代理模式"
-  - "RULE-SET,ProxyGFWlist,📬 代理模式"
+  
+
 
 #默认拦截
   - "RULE-SET,BanAdobeCheck,🚧 禁止访问"
@@ -512,10 +513,11 @@ rules:
   - "RULE-SET,Steam,🎮 游戏平台"
   - "RULE-SET,SteamCN,🚀 全球直连"
   - "RULE-SET,Nintendo,🎮 游戏平台"
-  - "RULE-SET,Download,🎯 数据下载"
+
 
 
     #========================兜底规则========================#
+  - "RULE-SET,ProxyGFWlist,📬 代理模式"
   - "GEOIP,CN,🚀 全球直连,no-resolve"
   - "MATCH,🐟 漏网之鱼"
 
